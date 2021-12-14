@@ -8,7 +8,7 @@ import (
 func TestGrahookLoad(t *testing.T) {
 	logger := logrus.New()
 	logger.SetLevel(logrus.DebugLevel)
-	logger.AddHook(NewGraylogHook("graylog.ladyjlabs.com:12201", "TestApp", nil))
+	logger.AddHook(NewGraylogHook("graylog.ladyjlabs.com:12201", "TestApp"))
 
 	for i := 0; i < 100000; i++ {
 		logger.WithFields(logrus.Fields{

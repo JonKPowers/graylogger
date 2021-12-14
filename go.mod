@@ -1,4 +1,4 @@
-module graylogger
+module github.com/JonKPowers/graylogger
 
 go 1.17
 

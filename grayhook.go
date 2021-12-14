@@ -1,7 +1,6 @@
 package graylogger
 
 import (
-	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"github.com/sirupsen/logrus"
@@ -18,11 +17,7 @@ type GraylogHook struct {
 	numRetries         int
 }
 
-func NewGraylogHook(address string, hostToLogAs string, tlsConfig *tls.Config) *GraylogHook {
-	if tlsConfig == nil {
-		tlsConfig = &tls.Config{}
-	}
-
+func NewGraylogHook(address string, hostToLogAs string) *GraylogHook {
 	return &GraylogHook{
 		hostToLogAs:        hostToLogAs,
 		graylogServAddress: address,
