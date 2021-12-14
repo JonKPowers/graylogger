@@ -1,4 +1,4 @@
-package grayhook
+package graylogger
 
 import (
 	"github.com/sirupsen/logrus"

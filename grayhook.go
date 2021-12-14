@@ -1,4 +1,4 @@
-package grayhook
+package graylogger
 
 import (
 	"crypto/tls"

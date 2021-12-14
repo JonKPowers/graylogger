@@ -1,4 +1,4 @@
-module go-graylog
+module graylogger
 
 go 1.17
 
