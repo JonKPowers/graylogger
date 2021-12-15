@@ -3,6 +3,7 @@ package graylogger
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"net"
 	"strings"
@@ -15,6 +16,14 @@ type GraylogHook struct {
 	hostToLogAs        string
 	Level              logrus.Level
 	numRetries         int
+}
+
+func NewGraylogger(address string, hostToLogAs string) *logrus.Logger {
+	logger := logrus.New()
+	appGuid := strings.Split(uuid.New().String(), "-")[0]
+	logger.SetLevel(logrus.DebugLevel)
+	logger.AddHook(NewGraylogHook(address, hostToLogAs+appGuid))
+	return logger
 }
 
 func NewGraylogHook(address string, hostToLogAs string) *GraylogHook {
