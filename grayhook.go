@@ -22,7 +22,7 @@ func NewGraylogger(address string, hostToLogAs string) *logrus.Logger {
 	logger := logrus.New()
 	appGuid := strings.Split(uuid.New().String(), "-")[0]
 	logger.SetLevel(logrus.DebugLevel)
-	logger.AddHook(NewGraylogHook(address, hostToLogAs+appGuid))
+	logger.AddHook(NewGraylogHook(address, hostToLogAs+"-"+appGuid))
 	return logger
 }
 
